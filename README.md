@@ -8,7 +8,9 @@ The goal of this custom GitHub Action is to be able to login to Azure Container 
 ## Usage
 
 ```yaml
-
+name: AcrLogin
+env:
+  IMAGE_NAME: acrlogintest
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -34,7 +36,7 @@ jobs:
         uses: actions/checkout@v3
       - name: ACR login
         id: acrlogin
-        uses: yaronpri/runner-acr-login-action@main
+        uses: yaronpri/runner-acr-login-action@v1
         with:
           acr_uri: ${{ github.event.inputs.acr_uri }}
           client_id: ${{ github.event.inputs.client_id }}
