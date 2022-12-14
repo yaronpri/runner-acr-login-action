@@ -1,0 +1,18 @@
+name: 'Login to ACR (Azure Container Registry) with Managed Identity'
+inputs:
+  acr_uri:  
+    description: 'Azure Container Registry URI'
+    required: true
+  client_id:  
+    description: 'Client ID (in case of multiple managed identity)'
+    required: false
+  tenant_id:  
+    description: 'Tenant ID'
+    required: false
+runs:
+  using: 'composite'
+  steps:
+    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
+    - run: acrlogin.sh "${{ inputs.acr_uri }}" "${{ inputs.client_id }}" "${{ inputs.tenant_id }}" | docker login ${{ inputs.acr_uri }} -u 00000000-0000-0000-0000-000000000000 --password-stdin
+      shell: bash
