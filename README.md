@@ -51,7 +51,7 @@ You can configure the action with various inputs, a list of which has been provi
 
 | Name             | Description                                                                                     | Default Value |
 |------------------|-------------------------------------------------------------------------------------------------|---------------|
-| acr_uri     | (Mandatory) The Azure Container Registy URI (the user managed identity should have AcrPush role)                 | ''        |
+| acr_uri     | (Mandatory) The Azure Container Registy URI (the user managed identity should have AcrPull/AcrPush role)                 | ''        |
 | client_id   | (optional) The User Managed Identity Client Id (in case of multiple managed identity assigned to self-hosted runner vm, machine)                                                              | ''        |
 | tenant_id       |  (optional) The tenant id                                                            | ''           |
 
